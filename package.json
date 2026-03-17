@@ -1,0 +1,23 @@
+{
+  "name": "chief-cook",
+  "version": "0.1.0",
+  "description": "Design Recipe tutoring agent for CSE11",
+  "type": "module",
+  "scripts": {
+    "start": "node --import dotenv/config --import tsx src/cli.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^17.3.1",
+    "marked": "^15.0.12",
+    "marked-terminal": "^7.3.0"
+  },
+  "devDependencies": {
+    "@types/marked-terminal": "^6.1.1",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}

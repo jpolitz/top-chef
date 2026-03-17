@@ -1,0 +1,21 @@
+## Current Assignment
+
+The student is implementing a list of books.
+
+They should define:
+- A Book class with fields: String title, String author, double price, int year
+- An ILoBook interface (list of books)
+- An MtLoBook class (empty list) implementing ILoBook
+- A ConsLoBook class (non-empty list) implementing ILoBook, with fields:
+  Book first, ILoBook rest
+
+Methods to implement on ILoBook:
+- int count() — count the number of books in this list
+- double totalPrice() — compute the total price of all books
+- ILoBook cheaperThan(double threshold) — return a list of books cheaper than
+  the given threshold
+- ILoBook sortByPrice() — sort the books by price (ascending)
+
+The student should work through each method using the Design Recipe. Start with
+count() as it is the simplest, then totalPrice(), then cheaperThan(), then
+sortByPrice() which is the most challenging (requires an insert helper).

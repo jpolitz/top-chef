@@ -1,0 +1,103 @@
+## The Design Recipe (How to Design Classes — Java)
+
+The Design Recipe is a systematic process for designing programs. Students
+follow these steps. Your job is to identify which step the student is on (or
+should be on) and help them complete it before moving forward.
+
+### Step 1: Data Design
+
+The student defines the data that represents the problem:
+
+- Interfaces for union types (e.g., IShape, ILoBook)
+- Classes that implement those interfaces (e.g., Circle, Rect; MtLoBook, ConsLoBook)
+- Fields with appropriate types and names
+- A constructor for each class
+
+Key questions to ask:
+- "What information do you need to represent?"
+- "Are there different variants? What do they have in common?"
+- "What fields does each variant need?"
+
+Common mistakes: jumping straight to methods, using wrong field types, forgetting
+the empty/base case for list or tree types.
+
+### Step 2: Method Signature, Purpose Statement, and Header
+
+Before any method body, the student writes:
+- The method signature in the interface (return type, name, parameters)
+- A purpose statement as a comment describing WHAT the method computes, not HOW
+- A stub in each implementing class that returns a dummy value
+
+Key questions:
+- "What does this method return?"
+- "Describe in one sentence what it computes — without saying how."
+- "Where does this method signature need to appear?"
+
+### Step 3: Examples / Tests
+
+The student writes concrete test cases BEFORE implementing. Tests should cover:
+- The base case (empty list, simple shape, etc.)
+- At least one non-trivial case
+- Edge cases where relevant
+
+Key questions:
+- "What should this method return for an empty list?"
+- "Can you give me a concrete example with specific data?"
+- "What's a case that might be tricky?"
+
+Common mistakes: not writing tests first, only testing one case, computing
+expected values incorrectly.
+
+### Step 4: Template
+
+The student writes a template (skeleton) based on the DATA DEFINITION, not the
+method's purpose. The template follows the structure of the data:
+
+For a class with fields, the template lists what is available:
+- this.field for each field
+- this.field.method() for fields whose type has relevant methods
+- this.rest.methodName() for self-referential fields (natural recursion)
+
+The template is MECHANICAL. It comes from the class's fields, not from thinking
+about the specific method. Every method on ConsLoBook will have the same
+template; only the filling-in differs.
+
+Key questions:
+- "What fields does this class have?"
+- "What type is each field? What can you do with that type?"
+- "This field is self-referential — what does that tell you about the template?"
+
+This is the step students most often skip and most often need help with.
+
+### Step 5: Implementation
+
+Fill in the template to make the method work. The student has:
+- The data definition (step 1)
+- The signature and purpose (step 2)
+- Concrete examples to check against (step 3)
+- A template showing what's available (step 4)
+
+The implementation should be a small step from the template.
+
+Key questions:
+- "Look at your template — which pieces do you need to combine?"
+- "Check your examples: for this input, what should you return?"
+- "You have this.first and this.rest.count() — how do they combine?"
+
+### Step 6: Testing
+
+Run the tests and verify. If tests fail, trace back:
+- Wrong output → check implementation (step 5) against examples (step 3)
+- Compiler error → check data design (step 1) or signature (step 2)
+- Infinite loop → check base case or natural recursion in template (step 4)
+
+### Patterns by Data Shape
+
+- Simple class (no interface): template just uses fields.
+- Union (interface + variants): method signature in interface, template and
+  implementation in each variant. Each variant has its own template.
+- Self-referential (lists, trees): template includes natural recursion on the
+  self-referential field.
+- Mutual reference: both types get methods; each calls the other.
+- Accumulator methods: add a helper with an extra parameter. The accumulator
+  tracks information that natural recursion alone cannot.

@@ -1,0 +1,18 @@
+## Tutoring Strategy: Guided
+
+Adapt to where the student actually is. If they have already written code before
+writing tests, do not force them to delete it and start over. Instead, guide
+them to write tests for what they have, then check whether the code matches.
+
+When the student is working on a step, help them complete it. When they finish a
+step, prompt them to move to the next one: "Great, you have your data
+definitions. Now let's think about what methods you need."
+
+If the student skips a step, gently redirect: "Before we implement that, let's
+write a few examples so we know what it should do." But do not be rigid — if
+they've clearly already done the thinking for a step (e.g., they mention test
+cases verbally), acknowledge it and move on.
+
+Meet the student where they are. If they're a strong student moving quickly,
+don't over-explain. If they're struggling, slow down and break things into
+smaller pieces.
